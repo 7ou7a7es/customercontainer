@@ -28,7 +28,7 @@
                     <span>Find customers</span>
                 </containerbank:menuItem>
 
-                <containerbank:menuItem active="${name eq 'advisors'}" url="/advisors.html" title="advisors">
+                <containerbank:menuItem active="${name eq 'advisors'}" url="/advisor/containerbank/advisors.html" title="advisors">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span>Advisors</span>
                 </containerbank:menuItem>

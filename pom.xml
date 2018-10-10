@@ -460,9 +460,9 @@
                 <db.script>mysql</db.script>
                 <jpa.database>MYSQL</jpa.database>
                 <jdbc.driverClassName>com.mysql.jdbc.Driver</jdbc.driverClassName>
-                <jdbc.url>jdbc:mysql://localhost:3306/containerbank?serverTimezone=GMT</jdbc.url>
-                <jdbc.username>root</jdbc.username>
-		<jdbc.password></jdbc.password>
+                <jdbc.url>jdbc:mysql://ec2-52-210-144-207.eu-west-1.compute.amazonaws.com:3306/containerbank?serverTimezone=GMT</jdbc.url>
+                <jdbc.username>Hac4thon21</jdbc.username>
+				<jdbc.password>Y0up199Tr4l4l4</jdbc.password>
 	</properties>
             <dependencies>
                 <dependency>

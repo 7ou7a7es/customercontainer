@@ -23,14 +23,16 @@ public class PaymentServiceImpl implements PaymentService {
 	@Override
 	@Transactional
 	public void savePayment(Payment payment) throws DataAccessException {
+		long startTime = System.currentTimeMillis();
 		paymentRepository.save(payment);
-		System.out.println("*** customercontainer PaymentServiceImpl method save payment id "+payment.getId());
+		System.out.println("*** customercontainer PaymentServiceImpl method save payment id "+payment.getId()+" time : " + (System.currentTimeMillis() - startTime));
 	}
 
 	@Override
 	public Collection<Payment> findPaymentsByCardId(int cardId) {
+		long startTime = System.currentTimeMillis();
 		Collection<Payment> result =  paymentRepository.findByCardId(cardId);
-		System.out.println("*** customercontainer PaymentServiceImpl method findPaymentsByCardId on id "+cardId);
+		System.out.println("*** customercontainer PaymentServiceImpl method findPaymentsByCardId on id "+cardId+" time : " + (System.currentTimeMillis() - startTime));
 		return result;
 	}
 

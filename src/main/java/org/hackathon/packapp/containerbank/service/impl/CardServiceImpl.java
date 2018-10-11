@@ -24,22 +24,28 @@ public class CardServiceImpl implements CardService {
     @Override
     @Transactional(readOnly = true)
     public Collection<CardType> findCardTypes() throws DataAccessException {
-    	System.out.println("*** customercontainer CardServiceImpl method findCardTypes");
-        return cardRepository.findCardTypes();
+    	
+    	long startTime = System.currentTimeMillis();
+    	Collection<CardType> result = cardRepository.findCardTypes();
+    	System.out.println("*** customercontainer CardServiceImpl method findCardTypes time : " + (System.currentTimeMillis() - startTime));
+        return result;
     }
 
 
     @Override
     @Transactional(readOnly = true)
     public Card findCardById(int id) throws DataAccessException {
-    	System.out.println("*** customercontainer CardServiceImpl method findCardById id "+id);
-        return cardRepository.findById(id);
+    	long startTime = System.currentTimeMillis();
+    	Card result = cardRepository.findById(id);
+    	System.out.println("*** customercontainer CardServiceImpl method findCardById id "+id +" time : " + (System.currentTimeMillis() - startTime));
+    	return result;
     }
 
     @Override
     @Transactional
     public void saveCard(Card card) throws DataAccessException {
+    	long startTime = System.currentTimeMillis();
         cardRepository.save(card);
-        System.out.println("*** customercontainer CardServiceImpl method saveCard card "+ card.getId());
+        System.out.println("*** customercontainer CardServiceImpl method saveCard card "+ card.getId()+" time : " + (System.currentTimeMillis() - startTime));
     }
 }

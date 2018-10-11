@@ -23,21 +23,26 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	@Transactional(readOnly = true)
 	public Customer findCustomerById(int id) throws DataAccessException {
-		System.out.println("*** customercontainer CustomerServiceImpl method findCustomerById id "+id);
-		return customerRepository.findById(id);
+		long startTime = System.currentTimeMillis();
+		Customer result = customerRepository.findById(id);
+		System.out.println("*** customercontainer CustomerServiceImpl method findCustomerById id "+id+" time : " + (System.currentTimeMillis() - startTime));
+		return result;
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public Collection<Customer> findCustomerByLastName(String lastName) throws DataAccessException {
-		System.out.println("*** customercontainer CustomerServiceImpl method findCustomerByLastName lastName "+lastName);
-		return customerRepository.findByLastName(lastName);
+		long startTime = System.currentTimeMillis();
+		Collection<Customer> result =  customerRepository.findByLastName(lastName);
+		System.out.println("*** customercontainer CustomerServiceImpl method findCustomerByLastName lastName "+lastName+" time : " + (System.currentTimeMillis() - startTime));
+		return result;
 	}
 
 	@Override
 	@Transactional
 	public void saveCustomer(Customer customer) throws DataAccessException {
+		long startTime = System.currentTimeMillis();
 		customerRepository.save(customer);
-		System.out.println("*** customercontainer CustomerServiceImpl method saveCustomer lastName "+customer.getLastName());
+		System.out.println("*** customercontainer CustomerServiceImpl method saveCustomer lastName "+customer.getLastName()+" time : " + (System.currentTimeMillis() - startTime));
 	}
 }

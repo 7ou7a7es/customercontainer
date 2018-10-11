@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.RestTemplate;
 
 @Service
 public class CardServiceImpl implements CardService {
@@ -25,6 +24,7 @@ public class CardServiceImpl implements CardService {
     @Override
     @Transactional(readOnly = true)
     public Collection<CardType> findCardTypes() throws DataAccessException {
+    	System.out.println("*** customercontainer CardServiceImpl method findCardTypes");
         return cardRepository.findCardTypes();
     }
 
@@ -32,6 +32,7 @@ public class CardServiceImpl implements CardService {
     @Override
     @Transactional(readOnly = true)
     public Card findCardById(int id) throws DataAccessException {
+    	System.out.println("*** customercontainer CardServiceImpl method findCardById id "+id);
         return cardRepository.findById(id);
     }
 
@@ -39,5 +40,6 @@ public class CardServiceImpl implements CardService {
     @Transactional
     public void saveCard(Card card) throws DataAccessException {
         cardRepository.save(card);
+        System.out.println("*** customercontainer CardServiceImpl method saveCard card "+ card.getId());
     }
 }

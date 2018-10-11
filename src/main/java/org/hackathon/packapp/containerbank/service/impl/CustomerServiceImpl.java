@@ -23,12 +23,14 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	@Transactional(readOnly = true)
 	public Customer findCustomerById(int id) throws DataAccessException {
+		System.out.println("*** customercontainer CustomerServiceImpl method findCustomerById id "+id);
 		return customerRepository.findById(id);
 	}
 
 	@Override
 	@Transactional(readOnly = true)
 	public Collection<Customer> findCustomerByLastName(String lastName) throws DataAccessException {
+		System.out.println("*** customercontainer CustomerServiceImpl method findCustomerByLastName lastName "+lastName);
 		return customerRepository.findByLastName(lastName);
 	}
 
@@ -36,5 +38,6 @@ public class CustomerServiceImpl implements CustomerService {
 	@Transactional
 	public void saveCustomer(Customer customer) throws DataAccessException {
 		customerRepository.save(customer);
+		System.out.println("*** customercontainer CustomerServiceImpl method saveCustomer lastName "+customer.getLastName());
 	}
 }

@@ -24,11 +24,14 @@ public class PaymentServiceImpl implements PaymentService {
 	@Transactional
 	public void savePayment(Payment payment) throws DataAccessException {
 		paymentRepository.save(payment);
+		System.out.println("*** customercontainer PaymentServiceImpl method save payment id "+payment.getId());
 	}
 
 	@Override
 	public Collection<Payment> findPaymentsByCardId(int cardId) {
-		return paymentRepository.findByCardId(cardId);
+		Collection<Payment> result =  paymentRepository.findByCardId(cardId);
+		System.out.println("*** customercontainer PaymentServiceImpl method findPaymentsByCardId on id "+cardId);
+		return result;
 	}
 
 }
